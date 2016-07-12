@@ -1,0 +1,21 @@
+Have you ever woken up with no memory of your last party? Your night may have spun out of control and you may have had a risky behavior.
+What if you could, in only 5 minutes, have the list of all the sexually transmitted diseases (STDs) you may have caught and the drugs you may have taken?
+What you would want to know is "Did I get a STD? And if so, which one did I get?! Is it the HIV, the syphilis or the hepatitis B?"
+Very-Bad-Trip is a small paper device that detects biomarkers at a very early state of the infection, and several at once.
+It's cheap, easy, and gives you multiple answers very quickly to help you remember what happened.
+Brainstorming
+Early on, our desire was to search for a cheap, maybe do-it-yourself project of "frugal biology".
+We rapidly thought of a test on paper. What for? The most documented important health problems are about STDs.
+Currently available STD self-test kits are expensive (av. $30), based on antigen-antibody detection and only work for one infection at a time. We want to develop something that combines several detections on one chip, and if possible, something fast, low-cost, and easy to use.
+To get another advantage on what already exists, why not try a more recent and very sensitive technology? We decided to focus our research on detection by aptamers.
+Principle
+The diagnosis is based on the interaction between a pathology biomarker (a protein) and a specific DNA sensor (an aptamer). This sensor, anchored on a piece of paper, will enable, from a drop of blood, a direct diagnosis thanks to a fluorescence emission. This project uses an innovative nucleic acid technology and a combination of existing parts, but no cells are used in this detection process. Cells are only used to produce the genetic construction, using synthetic biology.
+Proof of Concept
+The proof of concept will be made with ATP and thrombin aptamers.
+Then, we will work on the detection of HIV and hepatitis B.
+We are hoping to gather several different tests on a single paper chip in order to create a multi-detection device.
+Finality
+The goal is to build a simple, fast, eco-friendly, and cheap device that detects the most common STDs and drugs.
+Human Practices
+A reflexion about the conditions of use of our device seems necessary: should it be made available as a self-test kit, or should it be used under the control of a specialist? What about the consequences of the diagnosis? We are gathering opinions from experts who daily work with the detection of STDs, in order to know which major diseases necessitate the development of a new, faster and more sensitive detection test, who are the most concerned people in the population,...
+RK: DO NOT FORGET TO USE CONDOMS !

@@ -1,0 +1,3 @@
+'cause spore is more!
+After a ton of ideas and a lot of brainstorming, we decided to work with bacteria and spores this summer. More specifically, we are focusing on the organism Bacillus subtilis. B. subtilis is a gram-positive, aerobically growing bacterium, which is easy, safe and cheap to handle in the laboratory. Under nutrient deficient circumstances, they form so-called endospores. 
+These are highly resistant to heat, cold, radiation and enzymatic attacks. Our goal is to unlock the hidden potential of the spores and to engineer them for the display of binding proteins and functional enzymes on their surfaces directed against structures of our choice. Those binding properties can be used to specifically target disease-associated cells and undesirable bacteria. 

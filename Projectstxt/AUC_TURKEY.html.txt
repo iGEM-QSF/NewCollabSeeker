@@ -1,0 +1,4 @@
+
+It takes several centuries for PET (Polyethylene Terephthalate) plastics to degrade in nature. With its extensive use in industry and ever-so-growing market, Polyethylene Terephthalate is everywhere around us. They are thrown out into nature, mixing into waters, contaminating seas and soil; degrading the quality of life and posing a threat to animals. Today’s commonly preferred recycling techniques need enhancement; in this light,  alternative recycling technologies are pursued, albeit a competitive biological method is yet to be designed.
+Aiming to degrade Polyethylene Terephthalate effectively, we have generated a biological system based on E.coli; which will degrade Polyethylene Terephthalate, eliminating the toxicity by giving off non-toxic and safe products. Introducing enzymes with possibly higher activity than previously used PET degrading enzymes, our system enables a high quality and simple technique with highly pure results.
+

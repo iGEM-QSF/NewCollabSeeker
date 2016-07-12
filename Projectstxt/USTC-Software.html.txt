@@ -1,0 +1,14 @@
+We had a long-time brainstorm and find an appropriate project for the team. Although there're many aspects that can be solved by computing, things that can be done perfectly by us seem restricted. Before we finally decide which project to work on, we used to investigate those projects: 
+
+1. GRN (genetic regulatory networks) research
+2. Software for NgAgo
+3. CNN application in protein picture analysis
+4. Biopano further development (Biopano 2.0)
+5. Aptamer analysis
+
+Finally, we discussed with our primary PI Haiyan Liu, and reached an agreement that Biopano has a better prospect than other alternatives. Moreover, a developed Biopano platform can be friendly to users who need to analyze genetic networks, which is part of project 1. After months of surveying, discussing, and brainstorming, our team selected Biopano 2.0 as the ultimate project.Biopano is an open source software based on visual editor servicing for editing large-scale gene networks. It helps in group work as well. Target gene can be licked to the existed network form the public database easily with the searching functions built in the software. The software also supports external plug-in, which allows users adding features they need. News in the second generation are:
+
+1. Real-time simulation for the expression of the gene network.
+To design the prototype gene lines with the truth table.
+To imply the gene network according to the result of the expression.
+To export into other software formats
