@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" layout:decorator="base">
+<head>
+<title>Collab seeker</title>
+</head>
+<body>
+<div layout:fragment="content">
+    
+<div class="col-sm-12" id="results">
+	<div class="page-header text-muted">
+	Search to see results
+	</div>
+</div>
+
+
+<div class="col-sm-12" id="tags">
+	<div class="page-header text-muted divider">
+		Top Tags
+	</div>
+</div>
+
+
+<!--/tags-->
+<div class="row">
+	<div class="col-sm-4 text-center">
+		<h4><a href="/?q=modelling" style="text-decoration: none;">#modelling</a></h4>
+		<a href="/?q=modelling"><img src="http://igem.org/wiki/images/3/3e/Icons_software.png" class="img-respsonsive img-circle" /></a>
+	</div>
+	<div class="col-sm-4 text-center">
+		<h4><a href="/?q=lab" style="text-decoration: none;">#lab</a></h4>
+		<a href="/?q=lab"><img src="http://igem.org/wiki/images/0/0d/Icons_communitylabs.png" class="img-respsonsive img-circle" /></a>
+	</div>
+	<div class="col-sm-4 text-center">
+		<h4><a href="/?q=survey" style="text-decoration: none;">#survey</a></h4>
+		<a href="/?q=survey"><img src="http://2014.igem.org/wiki/images/c/cc/Icons_policyandpractices.png" class="img-respsonsive img-circle" /></a>
+	</div>
+</div>
+<!--{% endblock %}-->
+
+
+<!--{% block connect %}-->
+<div class="row divider">
+	 <div class="col-sm-12"><hr/></div>
+</div>
+
+<div class="col-sm-12">
+	<div class="page-header text-muted divider">
+		Connect with Us
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-6">
+		<a href="https://twitter.com/collabseeker">Twitter</a> <small class="text-muted">|</small> <a href="https://www.facebook.com/CollabSeeker">Facebook</a>
+	</div>
+</div>
+<hr/>
+</div>
+</body>
+</html>
+<!--{% endblock %}-->

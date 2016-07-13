@@ -1,0 +1,98 @@
+<!--{% extends "base.html" %}
+
+{% block title %}
+{{ title }} - Collab Seeker
+{% endblock %}
+
+
+{% block content %}-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" layout:decorator="base">
+<head>
+<title>Collab seeker</title>
+</head>
+<body>
+<div layout:fragment="content">
+<div class="col-sm-12" id="results">
+	<div class="page-header text-muted">
+	<!--{% if teams %}
+		Results
+	{% else %}
+		No Teams Found
+	{% endif %}-->
+        <span th:text="${not #lists.isEmpty(teams)}? 'Results' : 'No Teams Found'">Results</span>
+	</div>
+</div>
+
+<!--/results-->
+<!--{% for team in teams %}-->
+<div th:each='team : ${teams}'>
+<div class="row">
+	<div class="col-sm-10">
+		<h3><a href='' th:href="@{/team/{teamname} (teamname=${team.name})}" style="text-decoration: none;" th:text='${team.name}'>{{ team.title }}</a></h3><h4>
+			<small class="text-muted" th:text='${team.description}'>{{ team.description.about }}</small>
+			<br/>
+		</h4>
+	</div>
+	<!--div class="col-sm-2">
+		{% if team.img %}
+		<a href="/team/{{ team.title }}" class="pull-right"><img src="{{ team.img }}" class="img-circle"></a>
+		{% endif %}
+	</div-->
+</div>
+<br/>
+</div>
+<!--{% endfor %}-->
+
+<div class="row divider">
+	 <div class="col-sm-12"><hr/></div>
+</div>
+
+
+<div class="col-sm-12" id="tags">
+	<div class="page-header text-muted divider">
+		Top Tags
+	</div>
+</div>
+
+
+<!--/tags-->
+<div class="row">
+	<div class="col-sm-4 text-center">
+		<h4><a href="/?q=modelling" style="text-decoration: none;">#modelling</a></h4>
+		<a href="/?q=modelling"><img src="http://igem.org/wiki/images/3/3e/Icons_software.png" class="img-respsonsive img-circle" /></a>
+	</div>
+	<div class="col-sm-4 text-center">
+		<h4><a href="/?q=lab" style="text-decoration: none;">#lab</a></h4>
+		<a href="/?q=lab"><img src="http://igem.org/wiki/images/0/0d/Icons_communitylabs.png" class="img-respsonsive img-circle" /></a>
+	</div>
+	<div class="col-sm-4 text-center">
+		<h4><a href="/?q=survey" style="text-decoration: none;">#survey</a></h4>
+		<a href="/?q=survey"><img src="http://2014.igem.org/wiki/images/c/cc/Icons_policyandpractices.png" class="img-respsonsive img-circle" /></a>
+	</div>
+</div>
+<!--{% endblock %}
+
+
+{% block connect %}-->
+<div class="row divider">
+	 <div class="col-sm-12"><hr/></div>
+</div>
+
+<div class="col-sm-12">
+	<div class="page-header text-muted divider">
+		Connect with Us
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-6">
+		<a href="https://twitter.com/collabseeker">Twitter</a> <small class="text-muted">|</small> <a href="https://www.facebook.com/CollabSeeker">Facebook</a>
+	</div>
+</div>
+
+<hr/>
+<!--{% endblock %}-->
+</div>
+</body>
+</html>
