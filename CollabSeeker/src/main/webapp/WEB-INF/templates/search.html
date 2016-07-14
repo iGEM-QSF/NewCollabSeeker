@@ -1,11 +1,4 @@
-<!--{% extends "base.html" %}
 
-{% block title %}
-{{ title }} - Collab Seeker
-{% endblock %}
-
-
-{% block content %}-->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" layout:decorator="base">
 <head>
@@ -15,17 +8,11 @@
 <div layout:fragment="content">
 <div class="col-sm-12" id="results">
 	<div class="page-header text-muted">
-	<!--{% if teams %}
-		Results
-	{% else %}
-		No Teams Found
-	{% endif %}-->
+	
         <span th:text="${not #lists.isEmpty(teams)}? 'Results' : 'No Teams Found'">Results</span>
 	</div>
 </div>
 
-<!--/results-->
-<!--{% for team in teams %}-->
 <div th:each='team : ${teams}'>
 <div class="row">
 	<div class="col-sm-10">
@@ -35,15 +22,13 @@
 		</h4>
 	</div>
 	<div class="col-sm-2">
-		<!--{% if team.img %}
-		<a href="/team/{{ team.title }}" class="pull-right"><img src="{{ team.img }}" class="img-circle"></a>
-		{% endif %}-->
+		
                 <a class="pull-right" href="" th:href="@{/team/{teamname} (teamname=${team.name})}"><img th:if="${team.image != null}" src="" th:src="@{/team/images/{teamname} (teamname=${team.name})}" class="img-circle" /></a>
 	</div>
 </div>
 <br/>
 </div>
-<!--{% endfor %}-->
+
 
 <div class="row divider">
 	 <div class="col-sm-12"><hr/></div>
@@ -57,7 +42,6 @@
 </div>
 
 
-<!--/tags-->
 <div class="row">
 	<div class="col-sm-4 text-center">
 		<h4><a href="/?q=modelling" style="text-decoration: none;">#modelling</a></h4>
@@ -72,10 +56,7 @@
 		<a href="/?q=survey"><img src="http://2014.igem.org/wiki/images/c/cc/Icons_policyandpractices.png" class="img-respsonsive img-circle" /></a>
 	</div>
 </div>
-<!--{% endblock %}
 
-
-{% block connect %}-->
 <div class="row divider">
 	 <div class="col-sm-12"><hr/></div>
 </div>
@@ -93,7 +74,7 @@
 </div>
 
 <hr/>
-<!--{% endblock %}-->
+
 </div>
 </body>
 </html>

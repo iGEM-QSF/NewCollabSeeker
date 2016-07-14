@@ -10,15 +10,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 		<link href="../../static/css/bootstrap.css" th:href="@{/static/css/bootstrap.css}" rel="stylesheet" type="text/css" />
 
-		<!--[if lt IE 9]>
-			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
+		
                 <link href="../../static/css/styles.css" rel="stylesheet" />
-    <!-- start Mixpanel --><!--script type="text/javascript">(function(f,b){if(!b.__SV){var a,e,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
-for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=f.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";e=f.getElementsByTagName("script")[0];e.parentNode.insertBefore(a,e)}})(document,window.mixpanel||[]);
-mixpanel.init("4891fed606b54f470e2d9950a606ca41");</script-->
-<!-- end Mixpanel -->
-    <!--{% block extrabegscript %}{% endblock %}-->
+    
 	</head>
 	<body>
 <div class="wrapper">
@@ -52,12 +46,7 @@ mixpanel.init("4891fed606b54f470e2d9950a606ca41");</script-->
                 <div class="padding">
                     <div class="full col-sm-9">
 
-                        <!-- content -->
-                        <!--{% block content %}
-                        {% endblock %}
-
-                        {% block connect %}
-                        {% endblock %}-->
+                        
                         
                         <div layout:fragment="content">
                         </div>
@@ -71,7 +60,7 @@ mixpanel.init("4891fed606b54f470e2d9950a606ca41");</script-->
     </div>
 </div>
 	<!-- script references -->
-    <!--{% block extraendscript %}{% endblock %}-->
+    
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
