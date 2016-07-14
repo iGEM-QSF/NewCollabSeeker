@@ -1,0 +1,112 @@
+<!--{% extends "base.html" %}
+
+{% block title %}
+{{ team.title }} - Collab Seeker
+{% endblock %}
+
+
+{% block content %}-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" layout:decorator="base">
+<head>
+<title>Collab seeker</title>
+</head>
+<body>
+<div layout:fragment="content">
+
+<div class="col-sm-12" id="results">
+	<div class="page-header text-muted">
+	<!--{% if team %}
+		Team
+	{% else %}
+		No Team Found
+	{% endif %}-->
+        <span th:text="${team}? 'Team' : 'No Team Found'">Team</span>
+	</div>
+</div>
+
+<!--/results-->
+<!--{% if team %}-->
+<div th:if='${team}'>
+<div class="row">
+	<div class="col-sm-10">
+		<h3 th:text='${team.name}'>{{ team.title }}</h3><h4>
+		<small class="text-muted">About: <span th:text='${team.description}'>{{ about }}</span></small>
+		<br/>
+		<small class="text-muted">Year: <span th:text='${team.year}'>{{ team.year }}</span> • <a id="wiki-link" href="http://{{ team.year }}.igem.org/Team:{{ team.title }}" th:href='@{http://{teamyear}.igem.org/Team:{teamname} (teamyear=${team.year}, teamname=${team.name})}' style="text-decoration: none;">Visit Wiki</a></small>
+		<br/>
+		<small class="text-muted">Social Media:
+			<!--{% if facebook %}
+			<a id="fb-link" href="https://www.facebook.com/{{ facebook }}" style="text-decoration: none;">Facebook</a>
+			{% endif %}
+			{% if twitter %}
+			 • <a id="twitter-link" href="https://www.twitter.com/{{ twitter }}" style="text-decoration: none;">Twitter</a>
+			{% endif %}-->
+                        <span th:if='${not #strings.isEmpty(team.facebook)}'>
+                            <a id="fb-link" href="https://www.facebook.com/{{ facebook }}" th:href='@{https://www.facebook.com/{facebook} (facebook=${team.facebook})}' style="text-decoration: none;">Facebook</a>
+                            <span th:if='${not #strings.isEmpty(team.twitter)}'> • </span>
+                        </span>
+                        <span th:if='${not #strings.isEmpty(team.twitter)}'>
+                            <a id="twitter-link" href="https://www.twitter.com/{{ twitter }}" th:href='@{https://www.twitter.com/{twitter} (twitter=${team.twitter})}' style="text-decoration: none;">Twitter</a>
+                        </span>
+  
+		</small>
+		<br/><br/>
+		<!--{% if googleform %}
+		<small class="text-muted">
+			<a id="gform-link" href="https://docs.google.com/forms/d/{{ googleform }}" style="text-decoration: none;">Open Survey</a>
+		</small>
+		<br/><br/>
+		{% endif %}-->
+		<small class="text-muted"> Tags:
+		<!--{% for tag in tags %}
+		<a href="/?q={{ tag }}" style="text-decoration: none;">#{{ tag }}</a>
+		{% endfor %}-->
+                <span th:each='tag : ${team.tags}'>
+                    <a href='' th:href='@{/search?={atag} (atag=${tag})}'>#<span th:text='${tag}' /></a>
+                </span>
+		</small>
+		<br/><br/>
+		<!--small class="text-muted"> Updated at:
+		{{ createdAt }}
+		</small-->
+                <small class="text-muted"> Updated at: <span th:text="${team.lastUpdated}"></span></small>
+		</h4>
+		<br/><br/>
+
+		<!--{% if not team.locked %}
+		<a class="btn btn-default" href="/team/edit/{{ team.title }}" role="button">Edit</a>
+		{% endif %}-->
+                <a th:if="${editable}" class="btn btn-default" href="" th:href="@{/team/edit/{teamname} (teamname = ${team.name})}">Edit</a>
+	</div>
+	<div class="col-sm-2">
+		<!--{% if team.img %}
+		<img src="{{ team.img }}" class="img-circle">
+		{% endif %}-->
+                <img th:if="${team.image != null}" src="" th:src="@{/team/images/{teamname} (teamname=${team.name})}" class="img-circle" />
+	</div>
+
+</div>
+<br/>
+</div>
+<!--{% endif %}-->
+<!--{% endblock %}
+
+
+{% block connect %}
+{% endblock %}
+
+
+{% block extraendscript %}
+<script type="text/javascript">
+    mixpanel.track_links("#fb-link", "Clicked Facebook");
+
+		mixpanel.track_links("#twitter-link", "Clicked Twitter");
+
+		mixpanel.track_links("#wiki-link", "Clicked Wiki");
+
+		mixpanel.track_links("#gform-link", "Clicked Google Form");
+</script-->
+</div>
+</body>
+</html>
+<!--{% endblock %}-->

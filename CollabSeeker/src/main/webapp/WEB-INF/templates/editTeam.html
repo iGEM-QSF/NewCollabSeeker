@@ -1,0 +1,108 @@
+<!--{% extends "base.html" %}
+
+{% block title %}
+Editing {{ team.title }} - Collab Seeker
+{% endblock %}
+
+
+{% block content %}-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" layout:decorator="base">
+<head>
+<title>Collab seeker</title>
+</head>
+<body>
+<div layout:fragment="content">
+
+
+
+<div class="col-sm-12" id="results">
+	<div class="page-header text-muted">
+	<!--{% if team %}
+		Team
+	{% else %}
+		No Team Found
+	{% endif %}-->
+		<span th:text="${team}? 'Team' : 'No Team Found'">Team</span>
+	</div>
+</div>
+
+<!--/results-->
+<!--{% if team %}-->
+<div class="row">
+	<!--{% if errors %}
+	<div class="col-sm-12">
+		Error:
+		{% for error in errors %}
+			<ul class="nav">
+				<li> • {{ error }}
+				</li>
+			</ul>
+		{% endfor %}
+	</div>
+	{% endif %}-->
+	<div class="col-sm-10">
+		<h3><a href='' th:href="@{/team/{teamname} (teamname=${team.name})}" style="text-decoration: none;" th:text='${team.name}'>{{ team.title }}</a></h3><h4/>
+		<form method="post" action="" th:action="@{/team/edit/{teamname} (teamname=${team.name})}" enctype="multipart/form-data">
+					<div class="form-group">
+						<label for="aboutInput">Description</label>
+						<h4>
+						<!--small class="text-muted">Minimum of 30 and maximum of 140 characters</small-->
+						<br/>
+						</h4>
+						<input type="text" class="form-control" name="description" placeholder="Your description here." th:value="${team.description}" value="{{ about }}" />
+					</div>
+					<!--div class="form-group">
+						<label for="emailInput">Email</label>
+						<input type="email" class="form-control" name="email" />
+					</div-->
+					<label for="emailInput">Social Media</label>
+					<div class="input-group">
+						<span class="input-group-addon" id="sizing-addon2">https://www.facebook.com/</span>
+						<input type="text" class="form-control" name="facebook" placeholder="Facebook Page" th:value="${team.facebook != null} ? ${team.facebook} : ''" value="{{ facebook }}" aria-describedby="sizing-addon2" />
+					</div>
+					<br/>
+					<div class="input-group">
+						<span class="input-group-addon" id="sizing-addon2">https://twitter.com/</span>
+						<input type="text" class="form-control" name="twitter" placeholder="Twitter Page" th:value="${team.twitter != null} ? ${team.twitter} : ''" value="{{ twitter }}" aria-describedby="sizing-addon2" />
+					</div>
+					<!--br/>
+					<label for="surveyInput">Survey</label>
+					<div class="input-group">
+						<span class="input-group-addon" id="sizing-addon2">https://docs.google.com/forms/d/</span>
+						<input type="text" class="form-control" name="googleform" placeholder="Google Form" value="{{ googleform }}" aria-describedby="sizing-addon2" />
+					</div-->
+					<br/>
+					<div class="form-group">
+						<label for="tagsInput">Tags</label>
+						<!--h4>
+						<small class="text-muted">Minimum of 5 and maximum of 15 tags. Separate them by spaces.</small>
+						<br/>
+						</h4-->
+						<input type="text" class="form-control" name="tags" placeholder="Ex: modelling lab energy" th:value="${tags != null} ? ${tags} : ''" value="{% for tag in tags %}{{ tag }} {% endfor %}" />
+					</div>
+					<br/><br/>
+					<!--{{ recaptcha }}-->
+                                        <div class="input-group">
+						<label for="imageInput">Image: </label>
+						<input type="file" class="form-control" name="file" placeholder="Search for an image..." value="" />
+					</div>
+                                        <br/><br/>
+					<input type="submit" class="btn btn-default" value="Submit" />
+		</form>
+	</div>
+	<div class="col-sm-2">
+		<!--{% if team.img %}
+		<img src="{{ team.img }}" class="img-circle">
+		{% endif %}-->
+                <img th:if="${team.image != null}" src="" th:src="@{/team/images/{teamname} (teamname=${team.name})}" class="img-circle" />
+	</div>
+</div>
+<br/>
+<!--{% endblock %}
+
+
+{% block connect %}-->
+</div>
+</body>
+</html>
+<!--{% endblock %}-->
