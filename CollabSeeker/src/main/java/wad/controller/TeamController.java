@@ -2,9 +2,7 @@ package wad.controller;
 
 import java.io.IOException;
 import java.text.DateFormat;
-import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import wad.domain.FileObject;
 import wad.domain.Team;
 import wad.repository.FileObjectRepository;
 import wad.repository.TeamRepository;
@@ -47,6 +44,9 @@ public class TeamController {
     @RequestMapping(value = "/edit/{teamname}", method = RequestMethod.GET)
     public String showEditing(@PathVariable String teamname, Model model) {
         Team thisTeam = teamRepository.findByName(teamname);
+        if (teamService.getAuthenticatedTeamName() == null || !teamService.getAuthenticatedTeamName().equals(teamname)) {
+            return "redirect:/team/"+teamname;
+        }
         model.addAttribute("team", thisTeam);
         String tags = thisTeam.getTags().stream().collect(Collectors.joining(" "));
         model.addAttribute("tags", tags);
@@ -58,6 +58,9 @@ public class TeamController {
             @RequestParam String facebook, @RequestParam String twitter, @RequestParam String tags,
             @RequestParam(value="file", required=false) MultipartFile file) throws IOException {
         Team thisTeam = teamRepository.findByName(teamname);
+        if (teamService.getAuthenticatedTeamName() == null || !teamService.getAuthenticatedTeamName().equals(teamname)) {
+            return "redirect:/team/"+teamname;
+        }
         thisTeam.setDescription(description);
         thisTeam.setFacebook(facebook);
         thisTeam.setTwitter(twitter);
