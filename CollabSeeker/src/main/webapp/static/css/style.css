@@ -7,7 +7,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 html, body{
   	 font-family: 'Raleway-Light';
     font-size: 100%;
-    background-color: #F0F3F6;
+    background-color: #ADD8E6; /* ALKUPERÄINEN: #F0F3F6 */
+    background-image: url("http://i.imgur.com/zdfZ4kH.png");
 }
 body a{
 	transition:0.5s all;
@@ -53,8 +54,9 @@ body a{
 	width: 13px;
 	height: 18px;
 	position: absolute;
-	top:32px;
-	left: 20px;
+	top:25px;
+	left: 20px;  
+        
 	background: url(../images/arrow.png) no-repeat 0px 0px;
 }
 /*--top-header--*/
@@ -183,6 +185,7 @@ ul.sub li a:hover{
 	text-decoration:none;
 }
 /*----sign-in-box----*/
+
 .text-box{
 	border:1px solid #A4ADB5;
 	position:relative;
@@ -228,6 +231,7 @@ ul.sub li a:hover{
 	background: #FFF;
 	padding: 1.8em 1em 0.5em;
 	margin: 2.5em 0;
+        
 }
 .sign-in-box h2{
 	font-family: 'Raleway-SemiBold';
@@ -907,7 +911,7 @@ span.s-drop1{
 }
 @media (max-width:1024px){
 	.container{
-		width:95%;
+		width:95%; 
 	}
 	.social-tags {
 		padding: 1em 1em 2em;
