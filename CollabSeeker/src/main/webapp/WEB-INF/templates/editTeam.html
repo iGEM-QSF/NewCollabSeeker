@@ -39,7 +39,7 @@
 					
 					<br/>
 					<div class="form-group">
-						<label for="tagsInput">Tags</label>
+						<label for="tagsInput">Categories</label>
 						
 						<input type="text" class="form-control" name="tags" placeholder="Ex: modelling lab energy" th:value="${tags != null} ? ${tags} : ''" value="{% for tag in tags %}{{ tag }} {% endfor %}" />
 					</div>

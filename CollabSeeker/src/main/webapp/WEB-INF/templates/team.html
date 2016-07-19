@@ -34,10 +34,10 @@
 		</small>
 		<br/><br/>
 		
-		<small class="text-muted"> Tags:
+		<small class="text-muted"> Categories:
 		
                 <span th:each='tag : ${team.tags}'>
-                    <a href='' th:href='@{/search?={atag} (atag=${tag})}'>#<span th:text='${tag}' /></a>
+                    <a href='' th:href='@{/search?={atag} (atag=${tag})}'><span th:text='${tag}' /></a>
                 </span>
 		</small>
 		<br/><br/>
