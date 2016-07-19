@@ -45,6 +45,7 @@ a {
     position: absolute;
     right: 0;
     top: 0;
+    background-color:#42647F;
     background-image:url('../../static/images/nAVEpFe.png');
     background-size:cover;
     background-attachment:fixed;
