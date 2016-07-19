@@ -37,7 +37,7 @@ a {
 
 .column .padding {
     padding: 20px;
-}
+} 
 
 .box {
   	bottom: 0; /* increase for footer use */
@@ -53,6 +53,11 @@ a {
 .divider {
 	margin-top:32px;
 }
+
+.buttondivider{
+    margin-left:5px;
+}
+
 
 #main {
     background-color:#fefefe;

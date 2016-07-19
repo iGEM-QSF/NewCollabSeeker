@@ -12,7 +12,7 @@
 
 		
                 <link href="../../static/css/styles.css" rel="stylesheet" />
-    
+
 	</head>
 	<body>
 <div class="wrapper">
@@ -33,6 +33,15 @@
 			</form>
                     </li>
                 </ul>
+                
+                <ul class="nav hidden-xs">
+                    <li>
+                        <h2><font size="4"> What is Collab Seeker?</font></h2>
+                        <p align="justify">Collab Seeker provides an easy way to find collaboration with other iGEM teams.
+                           Just write your keywords in the box above, and the seeker finds all the matching project descriptions!</p>
+                    </li>
+                </ul>
+           
                 <ul class="nav hidden-xs" id="sidebar-footer">
                     <li>
                       <a href="/"><h3>Collab Seeker</h3>Made with <i class="glyphicon glyphicon-heart-empty"></i> by Aalto-Helsinki</a>
@@ -44,6 +53,19 @@
             <!-- main -->
             <div class="column col-sm-9" id="main">
                 <div class="padding">
+                    <div>    
+                        <p>
+                                <button type="button" class="btn btn-default btn-sm" style="float: right;">
+                                <span class="glyphicon glyphicon-log-out"></span> Log Out
+                                </button>
+                        </p>
+                        <p>
+                                <button type="button" class="btn btn-default btn-sm" style="float: right;">
+                                    <span class="glyphicon glyphicon-user"></span> My Team
+                                </button>
+                        </p>    
+                        
+                    </div>
                     <div class="full col-sm-9">
 
                         
@@ -59,12 +81,14 @@
         </div>
     </div>
 </div>
-	<!-- script references -->
+
+	
+            <!-- script references -->
     
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      (i[r].q=i[r].q||[]).push(arguments);},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m);
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
       ga('create', 'UA-59669307-2', 'auto');
