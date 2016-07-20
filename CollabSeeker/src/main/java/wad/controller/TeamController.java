@@ -38,6 +38,7 @@ public class TeamController {
         if (teamService.getAuthenticatedTeamName() != null && teamService.getAuthenticatedTeamName().equals(teamname)) {
             model.addAttribute("editable", true);
         }
+        model.addAttribute("myteamname", teamService.getAuthenticatedTeamName());
         model.addAttribute("team", thisTeam);
         return "team";
     }
@@ -48,6 +49,7 @@ public class TeamController {
         if (teamService.getAuthenticatedTeamName() == null || !teamService.getAuthenticatedTeamName().equals(teamname)) {
             return "redirect:/team/"+teamname;
         }
+        model.addAttribute("myteamname", teamService.getAuthenticatedTeamName());
         model.addAttribute("team", thisTeam);
         //String tags = thisTeam.getTags().stream().collect(Collectors.joining(" "));
         List<String> tags = thisTeam.getTags();
@@ -57,7 +59,7 @@ public class TeamController {
     
     @RequestMapping(value = "/edit/{teamname}", method = RequestMethod.POST)
     public String edit(@PathVariable String teamname, @RequestParam String description,
-            @RequestParam String facebook, @RequestParam String twitter, @RequestParam String tags,
+            @RequestParam String facebook, @RequestParam String twitter,
             @RequestParam(value="file", required=false) MultipartFile file) throws IOException {
         Team thisTeam = teamRepository.findByName(teamname);
         if (teamService.getAuthenticatedTeamName() == null || !teamService.getAuthenticatedTeamName().equals(teamname)) {
@@ -66,7 +68,7 @@ public class TeamController {
         thisTeam.setDescription(description);
         thisTeam.setFacebook(facebook);
         thisTeam.setTwitter(twitter);
-        thisTeam.setTags(tags);
+        //thisTeam.setTags(tags);
         thisTeam.setLastUpdated(DateFormat.getDateInstance(DateFormat.SHORT).format(new Date()));
         
         /*FileObject imageFile = new FileObject();
