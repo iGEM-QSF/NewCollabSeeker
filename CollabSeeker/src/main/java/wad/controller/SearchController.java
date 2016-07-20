@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import wad.domain.Searcher;
 import wad.domain.Team;
 import wad.repository.TeamRepository;
+import wad.service.TeamService;
 
 @Controller
 @RequestMapping("/search")
@@ -23,6 +24,9 @@ public class SearchController {
     
     @Autowired
     private TeamRepository teamRepository;
+    
+    @Autowired
+    private TeamService teamService;
     
     private final String indexDir = "./src/main/webapp/static/index/";
     //private final String dataDir = "./src/main/webapp/static/data/";
@@ -52,6 +56,7 @@ public class SearchController {
             //teams.add(newTeam);
         }
         
+        model.addAttribute("myteamname", teamService.getAuthenticatedTeamName());
         model.addAttribute("teams", teams);
         return "search";
     }
