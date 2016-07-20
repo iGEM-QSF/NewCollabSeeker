@@ -24,7 +24,9 @@
 					<div class="form-group">
 						<label for="aboutInput">Description</label>
 						
-						<input type="text" class="form-control" name="description" placeholder="Your description here." th:value="${team.description}" value="{{ about }}" />
+						<textarea type="text" class="form-control" name="description" rows="12" placeholder="Your description here." th:inline="text">[[${team.description}]]
+                                                
+                                                </textarea>
 					</div>
 					
 					<label for="emailInput">Social Media</label>
