@@ -43,6 +43,42 @@
 						
 						<input type="text" class="form-control" name="tags" placeholder="Ex: modelling lab energy" th:value="${tags != null} ? ${tags} : ''" value="{% for tag in tags %}{{ tag }} {% endfor %}" />
 					</div>
+                                        
+                                        <!-- ALKAA TÄSTÄ -->
+        
+                                        <div class="form-group">
+                                            <label>Category</label>
+                                              <div class="multi-field-wrapper">
+                                                <div class="multi-fields">
+                                                    <div th:each='tag : ${tags}'><div class="multi-field">
+                                                    <input type="text" name="stuff[]" th:value="${tag}"/>
+                                                    
+                                                    <button type="button" class="remove-field">Remove</button>
+                                                        </div></div>
+                                                    <div class="multi-field">
+                                                    <input type="text" name="stuff[]" th:value="${tag}"/>
+                                                    
+                                                    <button type="button" class="remove-field">Remove</button>
+                                                        </div>
+                                                </div>
+                                              <button type="button" class="add-field">Add category</button>
+                                            </div>
+                                        </div>
+                                        <!-- JA LOPPUU TÄHÄN -->
+                                        
+                                        <script language="javascript">
+                                            $('.multi-field-wrapper').each(function() {
+                                            var $wrapper = $('.multi-fields', this);
+                                            $(".add-field", $(this)).click(function(e) {
+                                                $('.multi-field:last', $wrapper).clone(true).appendTo($wrapper).find('input').val('').focus();
+                                                console.log($('.multi-field', $wrapper));
+                                            });
+                                            $('.multi-field .remove-field', $wrapper).click(function() {
+                                                if ($('.multi-field', $wrapper).length > 1)
+                                                    $(this).parent('.multi-field').remove();
+                                            });
+                                        });
+                                        </script>
 					
 					
                                         <fieldset class="input-group">
