@@ -3,6 +3,7 @@ package wad.controller;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -48,7 +49,8 @@ public class TeamController {
             return "redirect:/team/"+teamname;
         }
         model.addAttribute("team", thisTeam);
-        String tags = thisTeam.getTags().stream().collect(Collectors.joining(" "));
+        //String tags = thisTeam.getTags().stream().collect(Collectors.joining(" "));
+        List<String> tags = thisTeam.getTags();
         model.addAttribute("tags", tags);
         return "editTeam";
     }

@@ -1,13 +1,11 @@
 package wad.domain;
 
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Lob;
@@ -24,7 +22,11 @@ public class Team extends AbstractPersistable<Long> {
     private String salt;
     
     private String year;
+    
+    @Lob
+    @Column(length = 11 * 1024)
     private String description;
+    
     private String facebook;
     private String twitter;
     
@@ -43,6 +45,7 @@ public class Team extends AbstractPersistable<Long> {
         this.twitter = "";
         this.lastUpdated = DateFormat.getDateInstance(DateFormat.SHORT).format(new Date());
         this.image = null;
+        this.tags = "";
     }
     
     /*
