@@ -2,6 +2,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" layout:decorator="base">
 <head>
 <title>Collab seeker</title>
+<script src="../../static/js/jquery-3.1.0.min.js" />
+<style>
+.morecontent span {
+display: none;
+}
+.morelink {
+display: block;
+
+}
+
+</style>
 </head>
 <body>
 <div layout:fragment="content">
@@ -17,11 +28,11 @@
 <div class="row">
 	<div class="col-sm-10">
 		<h3 th:text='${team.name}'>{{ team.title }}</h3><h4>
-		<small class="text-muted">About: <span th:text='${team.description}'>{{ about }}</span></small>
+                    <small><b>Description:</b><span class="text-muted description" th:text='${team.description}'>{{ about }}</span></small>
 		<br/>
-		<small class="text-muted">Year: <span th:text='${team.year}'>{{ team.year }}</span> • <a id="wiki-link" href="http://{{ team.year }}.igem.org/Team:{{ team.title }}" th:href='@{http://{teamyear}.igem.org/Team:{teamname} (teamyear=${team.year}, teamname=${team.name})}' style="text-decoration: none;">Visit Wiki</a></small>
+                <small class="text-muted"><b>Year:</b> <span th:text='${team.year}'>{{ team.year }}</span> • <a id="wiki-link" href="http://{{ team.year }}.igem.org/Team:{{ team.title }}" th:href='@{http://{teamyear}.igem.org/Team:{teamname} (teamyear=${team.year}, teamname=${team.name})}' style="text-decoration: none;">Visit Wiki</a></small>
 		<br/>
-		<small class="text-muted">Social Media:
+                <small class="text-muted"><b>Social Media:</b>
 			
                         <span th:if='${not #strings.isEmpty(team.facebook)}'>
                             <a id="fb-link" href="https://www.facebook.com/{{ facebook }}" th:href='@{https://www.facebook.com/{facebook} (facebook=${team.facebook})}' style="text-decoration: none;">Facebook</a>
@@ -34,7 +45,7 @@
 		</small>
 		<br/><br/>
 		
-		<small class="text-muted"> Categories:
+                <small class="text-muted"><b> Categories:</b>
 		
                 <span th:each='tag : ${team.tags}'>
                     <a href='' th:href='@{/search?={atag} (atag=${tag})}'><span th:text='${tag}' /></a>
@@ -42,7 +53,7 @@
 		</small>
 		<br/><br/>
 		
-                <small class="text-muted"> Updated at: <span th:text="${team.lastUpdated}"></span></small>
+                <small class="text-muted"><b> Updated at:</b> <span th:text="${team.lastUpdated}"></span></small>
 		</h4>
 		<br/><br/>
 
@@ -56,7 +67,52 @@
 
 </div>
 <br/>
+
+
 </div>
+    
+    <script>
+       $(document).ready(function() {
+    // Configure/customize these variables.
+    var showChar = 400;  // How many characters are shown by default
+    var ellipsestext = "...";
+    var moretext = "Show more";
+    var lesstext = "Show less";
+    
+
+    $('.description').each(function() {
+        var content = $(this).html();
+ 
+        if(content.length > showChar) {
+ 
+            var c = content.substr(0, showChar);
+            var h = content.substr(showChar, content.length - showChar);
+ 
+            var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
+ 
+            $(this).html(html);
+        }
+ 
+    });
+ 
+    $(".morelink").click(function(){
+        if($(this).hasClass("less")) {
+            $(this).removeClass("less");
+            $(this).html(moretext);
+        } else {
+            $(this).addClass("less");
+            $(this).html(lesstext);
+        }
+        $(this).parent().prev().toggle();
+        $(this).prev().toggle();
+        return false;
+    });
+});
+
+</script>
+    
+    
+        
 
 </div>
 </body>

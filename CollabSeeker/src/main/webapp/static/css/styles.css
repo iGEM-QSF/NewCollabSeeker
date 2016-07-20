@@ -140,6 +140,7 @@ h1,h2,h3 {
     width: 100%;
 }
 
-small.text-muted {
+small.text-muted description {
   font-family:courier,courier-new,monospace;
+  
 }

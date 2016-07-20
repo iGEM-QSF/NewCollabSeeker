@@ -26,7 +26,7 @@ public class DevProfile {
     @PostConstruct
     public void init() {
         // All teams -> Add facebook -> Add description
-        /*
+        
         File teamData = new File("./src/main/webapp/static/csv/teams.csv");
         CSVParser parser = null;
         try {
@@ -72,8 +72,8 @@ public class DevProfile {
             }
         } catch (IOException e) {
             System.out.println("Project data files not found!");
-        }*/
-        Team aaltohelsinki = new Team();
+        }
+        /*Team aaltohelsinki = new Team();
         aaltohelsinki.setName("Aalto-Helsinki");
         aaltohelsinki.setYear("2016");
         aaltohelsinki.setDescription("We are working to detect and degrade cyanotoxins.");
@@ -109,7 +109,7 @@ public class DevProfile {
                 nextTeam.setPassword("helppo");
                 teamRepository.save(nextTeam);
             }
-        }
+        }*/
         
     }
 }
