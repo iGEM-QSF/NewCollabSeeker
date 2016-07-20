@@ -1,8 +1,0 @@
-
-As we know, oil is one of the most important energy in the world, however, burning the oil has done great harm to the environment. Especially the sulfur element, which causes the acid rain, has caused serious damage to the buildings, plants, and animals and so on. To avoid these harm, people have done a lot in industry, but the traditional desulfurization has shown its evident shortcomings. Therefore, we put forward the bio-desulfurization to improve this matter.
-
-In the process of bio-desulfurization, we choose the thiophenes DBT as substrate, and desulfurize in a 4s pathway. By now, we have succeeded building the gene pathway of the enzymes Dsz A ,B, C, D in E.coli, which are used in the 4s pathway, and they have expressed. In the same time, we suppose to introduce a MexAB-OprM efflux system in E.coli so that the product HBP can be removed from the bacteria, preventing the bacteria from harming. In the preliminary experiments, we have proved that the engineering bacteria are able to turn DBT into HBP, this is what we call bio-desulfurization. In the future, we will optimize the system and improve the efficiency of desulfurization.
-
-When we are modeling, we have found that when Enzyme concentration meet Dsz B>DszC>DszA, we get the highest efficiency. So in the next stage, we will adjust the biocircuit and the ratio of oil and water, in order to find the best model. 
-
-With regard to human practice, parts of work are in progress, including questionnaire, discussion with Guangzhou environmental monitoring and petrochemical works, and searching for relevant laws and regulations. In addition, we will contact the Environmental Protection Bureau, jointly develop a new standard of sulfur emission, and promote the bio-desulfurization to public.

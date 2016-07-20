@@ -55,14 +55,14 @@
                 <div class="padding">
                     <div>    
                         <p>
-                                <button type="button" class="btn btn-default btn-sm" style="float: right;">
+                                <a type="button" class="btn btn-default btn-sm" th:href="@{/logout}" style="float: right;">
                                 <span class="glyphicon glyphicon-log-out"></span> Log Out
-                                </button>
+                                </a>
                         </p>
                         <p>
-                                <button type="button" class="btn btn-default btn-sm" style="float: right;">
-                                    <span class="glyphicon glyphicon-user"></span> My Team
-                                </button>
+                                <a type="button" class="btn btn-default btn-sm" th:href="@{/team/{teamname} (teamname=${myteamname})}" style="float: right;">
+                                    <span class="glyphicon glyphicon-user"></span> <span th:text="${myteamname}">My Team</span>
+                                </a>
                         </p>    
                         
                     </div>

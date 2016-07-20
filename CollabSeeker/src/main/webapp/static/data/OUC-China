@@ -1,6 +1,0 @@
-
-It has been proved that in Clostridium cellulolyticum, there is a kind of post-transcriptional regulation called selective RNA processing and stabilization (SRPS), which describes how stem-loops make a difference to mRNA level in a polycistron.
-
-As we all know, stem-loops which have lower folding free energy (∆G) than most oligonucleotides. And mRNA with stem-loops on 3’ or 5’ end often more stable than those without stem-loops. In some extent, the lower (∆G) of stem-loop is, the more stable corresponding mRNA is.
-
-Our team would like to design a series of stem-loops followed by a putative RNase E site and put them in intergenic region of a polycistron. We hope to decouple the expression level of upstream and downstream genes by this design though they are under the control of the same one promoter. And finally we would give a series of pithy regulation parts for others so that they can have another more choice.

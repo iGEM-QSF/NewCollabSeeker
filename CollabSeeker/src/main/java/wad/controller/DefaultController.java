@@ -4,9 +4,14 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +25,7 @@ import wad.repository.PersonRepository;
 import wad.repository.PostRepository;
 import wad.service.LikeService;
 import wad.service.PersonService;
+import wad.service.TeamService;
 
 @Controller
 @RequestMapping("*")
@@ -40,6 +46,9 @@ public class DefaultController {
     @Autowired
     private LikeService likeService;
 
+    @Autowired
+    private TeamService teamService;
+    
     @RequestMapping(value = "login", method = RequestMethod.GET)
     public String viewLogin(Model model) {
         return "login";
@@ -52,7 +61,7 @@ public class DefaultController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String view(Model model) {
-        PageRequest pr = new PageRequest(0, 10, Sort.Direction.DESC, "date");
+        /*PageRequest pr = new PageRequest(0, 10, Sort.Direction.DESC, "date");
 
         Person self = personService.getAuthenticatedPerson();
         model.addAttribute("self", self);
@@ -77,8 +86,19 @@ public class DefaultController {
         List<FriendshipRequest> requests = friendshipRequestRepository.findByTargetAndStatus(self, Status.REQUESTED);
         if (requests != null && requests.size() > 0) {
             model.addAttribute("friendshipRequests", requests);
-        }
+        }*/
+        
+        model.addAttribute("myteamname", teamService.getAuthenticatedTeamName());
 
         return "indexCollab";
+    }
+    
+    @RequestMapping(value = "logout", method = RequestMethod.GET)
+    public String logout(HttpServletRequest request, HttpServletResponse response) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth != null) {
+            new SecurityContextLogoutHandler().logout(request, response, auth);
+        }
+        return "redirect:/login";
     }
 }
