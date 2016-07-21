@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import wad.domain.Team;
-import wad.repository.FileObjectRepository;
 import wad.repository.TeamRepository;
 import wad.service.TeamService;
 
@@ -25,9 +23,6 @@ public class TeamController {
    
     @Autowired
     private TeamRepository teamRepository;
-    
-    @Autowired
-    private FileObjectRepository fileRepository;
     
     @Autowired
     private TeamService teamService;

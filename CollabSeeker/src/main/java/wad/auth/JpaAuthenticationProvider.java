@@ -11,16 +11,11 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Component;
-import wad.domain.Person;
 import wad.domain.Team;
-import wad.repository.PersonRepository;
 import wad.repository.TeamRepository;
 
 @Component
 public class JpaAuthenticationProvider implements AuthenticationProvider {
-
-    /*@Autowired
-    private PersonRepository personRepository;*/
     
     @Autowired
     private TeamRepository teamRepository;
