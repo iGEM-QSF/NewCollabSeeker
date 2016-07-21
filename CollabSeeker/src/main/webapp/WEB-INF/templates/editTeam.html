@@ -53,18 +53,21 @@
                                             <label>Category</label>
                                               <div class="multi-field-wrapper">
                                                 <div class="multi-fields">
-                                                    <div th:each='tag : ${tags}'><div class="multi-field">
-                                                    <input type="text" name="stuff[]" th:value="${tag}"/>
+                                                    <div th:each='tag : ${tags}'><div class="multi-field form-group">
+                                                    <input type="text" class="form-control1" name="stuff[]" th:value="${tag}"/>
                                                     
-                                                    <button type="button" class="remove-field">Remove</button>
+                                                    <a type="button" class="remove-field btn btn-default btn-xs">
+                                                        <span class="glyphicon glyphicon-remove"></span></a>
                                                         </div></div>
-                                                    <div class="multi-field">
-                                                    <input type="text" name="stuff[]"/>
+                                                    <div class="multi-field form-group">
+                                                    <input type="text" class="form-control1" name="stuff[]"/>
                                                     
-                                                    <button type="button" class="remove-field">Remove</button>
+                                                    <a type="button" class="remove-field btn btn-default btn-xs">
+                                                    <span class="glyphicon glyphicon-remove"></span></a>
                                                         </div>
                                                 </div>
-                                              <button type="button" class="add-field">Add category</button>
+                                                  <br></br>
+                                              <button type="button" class="add-field btn btn-default">Add category</button>
                                             </div>
                                         <!--/div-->
                                         <!-- JA LOPPUU TÄHÄN -->
@@ -81,26 +84,42 @@
                                             });
                                         });
                                         </script>
-					
-					
-                                        <fieldset class="input-group">
-						<label for="imageInput">Image </label>
-						<input type="file" class="form-control-file" name="file" accept="image/*"/>
-                                                
-   
-					</fieldset>
+                                        
+                    
+                                        <br></br>                           
+            <fieldset class="input-group">
+                
+                <label for="imageInput">Image </label>
+                <div>
+                                    
+                <input id="fileopen" type="file" name="file" class="form-control-file" value="" accept="image/*" style="float: left"/>
+                <a type="button" class="btn btn-default btn-xs" id="clear">
+                <span class="glyphicon glyphicon-remove"></span> 
+                </a>
+                </div>
+            </fieldset>
+                <div>
+                    <img th:if="${team.image != null}" src="" th:src="@{/team/images/{teamname} (teamname=${team.name})}" class="img-circle" />
+                
+                </div>
+                        
+        <script>
+                        $("#clear").click(function () {
+                        $("#fileopen").val("");
+                        });
+                        
+        </script>
                                         <br/><br/>
 					<input type="submit" class="btn btn-default" value="Submit" />
                                         
                                         <a type="button" class="btn btn-default" th:href="@{/team/{teamname} (teamname=${myteamname})}" >
                                         Cancel
                                         </a>
-		</form>
-	</div>
-	<div class="col-sm-2">
 		
-                <img th:if="${team.image != null}" src="" th:src="@{/team/images/{teamname} (teamname=${team.name})}" class="img-circle" />
+                </form>
 	</div>
+	
+    
 </div>
 <br/>
 
