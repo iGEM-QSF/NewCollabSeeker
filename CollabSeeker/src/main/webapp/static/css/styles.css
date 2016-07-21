@@ -4,13 +4,158 @@
 
 /* custom template */
 html, body {
-   height: 100%;
-   font-family:'Open Sans',arial,sans-serif;
+    height: 100%;
+    font-family:'Open Sans',arial,sans-serif;
+    /*font-family: 'Raleway-Light';*/
+    font-size: 100%;
+    background-color: #ADD8E6; /* ALKUPERÄINEN: #F0F3F6 */
+    background-image: url("http://i.imgur.com/zdfZ4kH.png");
 }
 
 a {
   color:#222222;
 }
+/*----log-in----*/
+/*----sign-in-box----*/
+.text-box{
+	border:1px solid #A4ADB5;
+	position:relative;
+	display:block;
+        margin:1em 0 0.8em;
+	opacity:0.6;
+	transition:0.5s all;
+	-webkit-transition:0.5s all;
+	-moz-transition:0.5s all;
+	-o-transition:0.5s all;
+	-ms-transition:0.5s all;
+}
+.text-box:hover{
+	opacity:1;
+}
+.text-box label{
+	width: 38px;
+	height: 38px;
+	display: inline-block;
+	background: url(../images/s-icons.png) no-repeat 3px 1px;
+	position: absolute;
+	z-index: 999;
+	
+        
+}
+.text-box label.s-lock{
+	background-position:3px -31px;
+}
+.text-box input[type="text"],input[type="password"]{
+	border-left: none;
+	border-right: none;
+	border-top: none;
+	border-bottom: none;
+	position: relative;
+	width: 100%;
+	text-indent: 0px;
+        /*text-indent: 40px;*/
+	outline: none;
+	padding: 0.5em;
+	display: block;
+}
+.sign-in-box{
+	background: #FFF;
+	padding: 1.8em 1em 0.5em;
+	margin: 2.5em 0;
+        
+}
+.sign-in-box h2{
+	font-family: 'Raleway-SemiBold';
+	color: #475965;
+	text-transform: uppercase;
+	font-size: 1em;
+	margin: 0;
+	text-align: center;
+}
+.sign-in-box input[type="submit"]{
+    
+	background: #21B8C6;
+	border: none;
+	outline: none;
+	color: #FFF;
+	display: block;
+	width: 100%;
+	border-radius: 0.3em;
+	-webkit-border-radius: 0.3em;
+	-moz-border-radius: 0.3em;
+	-o-border-radius: 0.3em;
+	-ms-border-radius: 0.3em;
+        
+	font-family: 'Raleway-SemiBold';
+	font-size: 0.99em;
+        padding: 0.6em 0;
+	text-transform: uppercase;
+	cursor:pointer;
+	 transition:0.5s all;
+	 -webkit-transition:0.5s all;
+	 -moz-transition:0.5s all;
+	 -o-transition:0.5s all;
+	 -ms-transition:0.5s all;
+}
+.sign-in-box input[type="submit"]:hover{
+	background: #475965;
+	color: #FFF;
+}
+.text-boxs{
+	margin:2em 0;
+}
+.member-sign{
+	font-size:0.875em;
+	color:#7D8E9A;
+}
+.member-signup{
+	font-size:1em;
+	color:#7D8E9A;
+	text-decoration:none;
+	font-family: 'Raleway-SemiBold';
+}
+.member-signup:hover,.member-sign:hover{
+	text-decoration:none;
+	color:#21B8C6;
+}
+.not-member{
+	margin:0.8em 0;
+	text-align:center;
+}
+.member-signup span{
+	width:16px;
+	height:12px;
+	display:inline-block;
+	background:url(../images/arrow1.png) no-repeat 0px 0px;
+}
+
+.problems {
+        color: #7D8E9A;
+	font-size:0.875em;
+	
+	padding:0.5em 0;
+
+	font-family: 'Raleway-SemiBold';
+}
+
+/*----copy-right---*/
+.copy-right p{
+	color: #7D8E9A;
+	font-size:0.875em;
+	text-align:right;
+	padding:2em 0;
+	text-transform:uppercase;
+}
+.copy-right p a{
+	color:#475965;
+	font-family: 'Raleway-SemiBold';
+}
+.copy-right p a:hover{
+	text-decoration:none;
+	color:#21B8C6;
+}
+
+/*---log-on-ends-here---*/
 
 .wrapper, .row {
    height: 100%;
@@ -144,3 +289,4 @@ small.text-muted description {
   font-family:courier,courier-new,monospace;
   
 }
+
