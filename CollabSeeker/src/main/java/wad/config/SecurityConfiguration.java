@@ -75,7 +75,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     
     @Bean
     public ConnectController connectController() {
+        System.out.println("Generating ConnectController...");
         ConnectController controller = new ConnectController(connectionFactoryLocator(), connectionRepository());
+        System.out.println(controller.toString());
         controller.addInterceptor(new CustomConnectInterceptor());
         return controller; 
     }
