@@ -39,18 +39,23 @@
                                     </span>
                                 </div>
                                 <input type="submit" value="sign in" />
+                                </form>
                                 <div>
                                 <!--span class="text-box"-->
                                         <label class="s-lock"></label>
-           
-                                        <input type="submit" name="facebook" value="Sign in with Facebook"/>
+                                        <form id="facebook-login" action="/connect/facebook" method="POST">
+                                            <input type="hidden" name="scope" value="public_profile" />
+                                            <input type="hidden" name="_csrf" th:value="${_csrf.token}" />
+                                            <input type="submit" name="facebook" value="Sign in with Facebook"/>
+                                        </form>
                                 <!--/span-->
                                 </div>
                                 <div>
                                 <!--span class="text-box"-->
                                         <label class="s-lock"></label>
-           
+                                        <form id="twitter-login" action="/connect/twitter" method="POST">
                                         <input type="submit" name="twitter" value="Sign in with Twitter"/>
+                                        </form>
                                 <!--/span-->
                                 </div>
                                 
@@ -59,7 +64,7 @@
                                 <!--p class="not-member">
                                     <a class="member-sign" th:href="@{/signup}"> Not a member?</a> <a class="member-signup" th:href="@{/signup}">Sign Up Now <span> </span></a>
                                 </p-->
-                            </form>
+                            <!--/form-->
 
                             <div class="copy-right">
                                 <p>Template by <a href="http://w3layouts.com/">w3layouts</a></p>

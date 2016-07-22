@@ -30,6 +30,9 @@ public class Team extends AbstractPersistable<Long> {
     private String facebook;
     private String twitter;
     
+    private String facebookId;
+    private String twitterId;
+    
     //@ElementCollection(targetClass=String.class)
     private String tags;
     
