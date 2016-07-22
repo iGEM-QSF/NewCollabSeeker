@@ -58,6 +58,23 @@ public class DevProfile {
             }
         }
         
+        
+        File twitterData = new File("./src/main/webapp/static/csv/team_and_twitter.csv");
+        parser = null;
+        try {
+            parser = CSVParser.parse(twitterData, Charset.defaultCharset(), CSVFormat.RFC4180);
+        } catch (IOException e) {}
+        if (parser != null) {
+            for (CSVRecord twitterRecord : parser) {
+                Team team = teamRepository.findByName(twitterRecord.get(0));
+                if (team != null) {
+                    team.setTwitterId(twitterRecord.get(3));
+                    team.setTwitter(twitterRecord.get(4));
+                    teamRepository.save(team);
+                }
+            }
+        }
+        
         File projectData = new File("./src/main/webapp/static/data/");
         DirectoryStream<Path> filepaths = null;
         try {

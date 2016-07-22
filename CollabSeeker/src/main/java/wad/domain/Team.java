@@ -141,4 +141,22 @@ public class Team extends AbstractPersistable<Long> {
     public void setImage(byte[] image) {
         this.image = image;
     }
+
+    public String getFacebookId() {
+        return facebookId;
+    }
+
+    public void setFacebookId(String facebookId) {
+        this.facebookId = facebookId;
+    }
+
+    public String getTwitterId() {
+        return twitterId;
+    }
+
+    public void setTwitterId(String twitterId) {
+        this.twitterId = twitterId;
+    }
+    
+    
 }
