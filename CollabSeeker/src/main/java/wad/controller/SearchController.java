@@ -3,6 +3,8 @@ package wad.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import javax.annotation.Resource;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.search.ScoreDoc;
@@ -27,6 +29,9 @@ public class SearchController {
     
     @Autowired
     private TeamService teamService;
+    
+     @Autowired
+    private @Resource(name="cats") Set<String> allcategories;
     
     private final String indexDir = "./src/main/webapp/static/index/";
     //private final String dataDir = "./src/main/webapp/static/data/";
@@ -58,7 +63,19 @@ public class SearchController {
         
         model.addAttribute("myteamname", teamService.getAuthenticatedTeamName());
         model.addAttribute("teams", teams);
+        
+        model.addAttribute("somecategories", allcategories);
         return "search";
     }
     
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
+        public String getAllTeams(Model model){
+            model.addAttribute("myteamname", teamService.getAuthenticatedTeamName());
+            model.addAttribute("teams", teamRepository.findAll());
+            model.addAttribute("somecategories", allcategories);
+            return "search";
+        }
+       
+            
+        
 }

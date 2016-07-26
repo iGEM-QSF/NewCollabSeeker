@@ -29,6 +29,8 @@ public class Team extends AbstractPersistable<Long> {
     @Column(length = 11 * 1024)
     private String description;
     
+    @Lob
+    @Column(length = 11 * 1024)
     private String collabdetails;
 
     public String getCollabdetails() {

@@ -12,6 +12,17 @@
 
 		
                 <link href="../../static/css/styles.css" rel="stylesheet" />
+                <script src="../../static/js/jquery-3.1.0.min.js" />
+                
+                <style>
+.morecontent span {
+display: none;
+}
+.morelink {
+display: block;
+}
+
+</style>
 
 	</head>
 	<body>
@@ -33,14 +44,69 @@
 			</form>
                     </li>
                 </ul>
+                                                                
+            
                 
                 <ul class="nav hidden-xs">
+                    <a href="/search/all">Browse teams</a>
                     <li>
                         <h2><font size="4"> What is Collab Seeker?</font></h2>
-                        <p align="justify">Collab Seeker provides an easy way to find collaboration with other iGEM teams.
-                           Just write your keywords in the box above, and the seeker finds all the matching project descriptions!</p>
+                        <p align="justify">Collab Seeker provides an easy way to find collaboration with other iGEM teams.</p>
+                        
+                        <small class="how">
+                        <h2><font size="4"> How to use the Collab Seeker</font></h2>
+                        <p align="justify">1. Edit your team page. Add collaboration categories and details about what kind of collaboration you are looking for. </p>
+                        <p align="justify">2. Just write a project keyword (e.g. cyanobacteria) in the box above or search through the list of collaboration categories, and the seeker will find all the matching teams for you! </p>
+                            <p align="justify">3. Contact your new collaboration partner(s)! </p>
+                        
+       
+                        </small>
+                        <script>
+                        $(document).ready(function() {
+    // Configure/customize these variables.
+    var showChar = 0;  // How many characters are shown by default
+    var ellipsestext = "...";
+    var moretext = "How to use the Collab Seeker>";
+    var lesstext = "Show less";
+    
+
+    $('.how').each(function() {
+        var content = $(this).html();
+ 
+        if(content.length > showChar) {
+ 
+            var c = content.substr(0, showChar);
+            var h = content.substr(showChar, content.length - showChar);
+ 
+            var html = c + '<span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
+ 
+            $(this).html(html);
+        }
+ 
+    });
+ 
+    $(".morelink").click(function(){
+        if($(this).hasClass("less")) {
+            $(this).removeClass("less");
+            $(this).html(moretext);
+        } else {
+            $(this).addClass("less");
+            $(this).html(lesstext);
+        }
+        $(this).parent().prev().toggle();
+        $(this).prev().toggle();
+        return false;
+    });
+});
+
+</script>   
+                
                     </li>
+                
+                
                 </ul>
+                                                                
+        
            
                 <ul class="nav hidden-xs" id="sidebar-footer">
                     <li>
