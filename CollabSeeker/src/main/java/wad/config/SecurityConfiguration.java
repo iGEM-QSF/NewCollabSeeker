@@ -1,5 +1,7 @@
 package wad.config;
 
+import java.util.HashSet;
+import java.util.Set;
 import javax.inject.Inject;
 import org.apache.tomcat.jdbc.pool.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -113,4 +115,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         String localEncryptionSalt = new String(Hex.encode(BCrypt.gensalt().getBytes()));
         return Encryptors.text(localEncryptionPassword, localEncryptionSalt);
     }
+    
+    @Bean
+    public Set<String> cats(){
+        return new HashSet();
+    }
+    
 }

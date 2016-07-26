@@ -14,7 +14,10 @@
 		Top Categories
 	</div>
 </div>
-
+    <div th:each="category : ${somecategories}" >
+        <p th:text="${category}"></p>
+        
+    </div>
 
 
 <div class="row">

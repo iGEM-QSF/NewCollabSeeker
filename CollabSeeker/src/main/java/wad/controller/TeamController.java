@@ -2,8 +2,13 @@ package wad.controller;
 
 import java.io.IOException;
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,14 +32,22 @@ public class TeamController {
     @Autowired
     private TeamService teamService;
     
+    @Autowired
+    private @Resource(name="cats") Set<String> allcategories;
+
+    public Set<String> getAllcategories() {
+        return allcategories;
+    }
+    
     @RequestMapping(value = "/{teamname}")
-    public String show(@PathVariable String teamname, Model model) {   
+    public String show(@PathVariable String teamname, Model model, HttpSession session) {   
         Team thisTeam = teamRepository.findByName(teamname);
         if (teamService.getAuthenticatedTeamName() != null && teamService.getAuthenticatedTeamName().equals(teamname)) {
             model.addAttribute("editable", true);
         }
         model.addAttribute("myteamname", teamService.getAuthenticatedTeamName());
         model.addAttribute("team", thisTeam);
+        session.setAttribute("categories", allcategories);
         return "team";
     }
     
@@ -60,6 +73,8 @@ public class TeamController {
         if (teamService.getAuthenticatedTeamName() == null || !teamService.getAuthenticatedTeamName().equals(teamname)) {
             return "redirect:/team/"+teamname;
         }
+        
+        allcategories.addAll(categories);
         thisTeam.setDescription(description);
         thisTeam.setCollabdetails(collabdetails);
         thisTeam.setFacebook(facebook);
@@ -87,4 +102,11 @@ public class TeamController {
         return teamRepository.findByName(teamname).getImage();
     }
     
+    @RequestMapping(value = "/allcategories", method = RequestMethod.GET)
+    @ResponseBody
+    public List<String> getAllCategories() {
+        List<String> allcat = new ArrayList<String>();
+        allcat.addAll(allcategories);
+        return allcat;
+    }
 }

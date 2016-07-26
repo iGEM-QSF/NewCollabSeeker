@@ -15,3 +15,4 @@ public interface TeamRepository extends JpaRepository<Team, Long> {
     List<Team> findByNameContainingIgnoreCase(String word);
     
 }
+

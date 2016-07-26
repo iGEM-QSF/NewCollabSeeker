@@ -1,5 +1,8 @@
 package wad.controller;
 
+import java.util.HashSet;
+import java.util.Set;
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +22,12 @@ public class DefaultController {
     @Autowired
     private TeamService teamService;
     
+    @Autowired
+    private TeamController teamController;
+    
+    @Autowired
+    private @Resource(name="cats") Set<String> allcategories;
+    
     @RequestMapping(value = "login", method = RequestMethod.GET)
     public String viewLogin(Model model) {
         return "login";
@@ -32,6 +41,7 @@ public class DefaultController {
     @RequestMapping(method = RequestMethod.GET)
     public String view(Model model) {        
         model.addAttribute("myteamname", teamService.getAuthenticatedTeamName());
+        model.addAttribute("somecategories", allcategories);
 
         return "indexCollab";
     }
