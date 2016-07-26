@@ -33,6 +33,8 @@ display: block;
 		<h3 th:text='${team.name}'>{{ team.title }}</h3><h4>
                     <small><b>Description: </b><span class="text-muted description" th:text='${team.description}'>{{ about }}</span></small>
 		<br/>
+                <small><b>Collaboration details: </b><span class="text-muted description" th:text='${team.collabdetails}'>{{ details }}</span></small>
+		<br/>
                 <small class="text-muted"><b>Year:</b> <span th:text='${team.year}'>{{ team.year }}</span> • <a id="wiki-link" href="http://{{ team.year }}.igem.org/Team:{{ team.title }}" th:href='@{http://{teamyear}.igem.org/Team:{teamname} (teamyear=${team.year}, teamname=${team.name})}' style="text-decoration: none;">Visit Wiki</a></small>
 		<br/>
                 <small class="text-muted"><b>Social Media:</b>
@@ -51,7 +53,7 @@ display: block;
                 <small class="text-muted"><b> Categories:</b>
 		
                 <span th:each='tag : ${team.tags}'>
-                    <a href='' th:href='@{/search?={atag} (atag=${tag})}'><span th:text='${tag}' /></a>
+                    <a href='' th:href='@{/categories?q={atag} (atag=${tag})}'><span th:text='${tag}' /></a>
                 </span>
 		</small>
 		<br/><br/>

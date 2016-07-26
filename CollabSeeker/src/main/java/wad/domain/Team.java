@@ -1,11 +1,13 @@
 package wad.domain;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Lob;
@@ -27,14 +29,24 @@ public class Team extends AbstractPersistable<Long> {
     @Column(length = 11 * 1024)
     private String description;
     
+    private String collabdetails;
+
+    public String getCollabdetails() {
+        return collabdetails;
+    }
+
+    public void setCollabdetails(String collabdetails) {
+        this.collabdetails = collabdetails;
+    }
+    
     private String facebook;
     private String twitter;
     
     private String facebookId;
     private String twitterId;
     
-    //@ElementCollection(targetClass=String.class)
-    private String tags;
+    @ElementCollection(targetClass=String.class)
+    private List<String> tags;
     
     private String lastUpdated;
     
@@ -48,7 +60,8 @@ public class Team extends AbstractPersistable<Long> {
         this.twitter = "";
         this.lastUpdated = DateFormat.getDateInstance(DateFormat.SHORT).format(new Date());
         this.image = null;
-        this.tags = "";
+        this.tags = new ArrayList<String>();
+        this.collabdetails = "";
     }
     
     /*
@@ -102,10 +115,10 @@ public class Team extends AbstractPersistable<Long> {
     }
 
     public List<String> getTags() {
-        return Arrays.asList(this.tags.split(" "));
+        return tags;
     }
 
-    public void setTags(String tags) {
+    public void setTags(List<String> tags) {
         this.tags = tags;
     }
 
@@ -157,6 +170,8 @@ public class Team extends AbstractPersistable<Long> {
     public void setTwitterId(String twitterId) {
         this.twitterId = twitterId;
     }
+
+    
     
     
 }

@@ -53,17 +53,18 @@ public class TeamController {
     }
     
     @RequestMapping(value = "/edit/{teamname}", method = RequestMethod.POST)
-    public String edit(@PathVariable String teamname, @RequestParam String description,
-            @RequestParam String facebook, @RequestParam String twitter,
+    public String edit(@PathVariable String teamname, @RequestParam String description, @RequestParam String collabdetails,
+            @RequestParam String facebook, @RequestParam String twitter, @RequestParam(value="categories[]") List<String> categories,
             @RequestParam(value="file", required=false) MultipartFile file) throws IOException {
         Team thisTeam = teamRepository.findByName(teamname);
         if (teamService.getAuthenticatedTeamName() == null || !teamService.getAuthenticatedTeamName().equals(teamname)) {
             return "redirect:/team/"+teamname;
         }
         thisTeam.setDescription(description);
+        thisTeam.setCollabdetails(collabdetails);
         thisTeam.setFacebook(facebook);
         thisTeam.setTwitter(twitter);
-        //thisTeam.setTags(tags);
+        thisTeam.setTags(categories);
         thisTeam.setLastUpdated(DateFormat.getDateInstance(DateFormat.SHORT).format(new Date()));
         
         /*FileObject imageFile = new FileObject();
