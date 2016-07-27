@@ -114,6 +114,9 @@ display: block;
                     </li>
                 </ul>
             </div>
+            
+            <p sec:authorize="isAnonymous()">You are currently not logged in.</p>
+            <p sec:authorize="isAuthenticated()">You just logged in. <strong><span th:text="${myteamname}"></span></strong></p>
             <!-- /sidebar -->
 
             <!-- main -->
