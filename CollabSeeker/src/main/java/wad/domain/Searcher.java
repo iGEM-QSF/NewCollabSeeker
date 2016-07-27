@@ -35,7 +35,7 @@ public class Searcher {
     
     public TopDocs search(String searchQuery) throws IOException, ParseException {
         this.query = this.queryParser.parse(searchQuery);
-        return this.indexSearcher.search(query, 10);
+        return this.indexSearcher.search(query, 100);
     }
     
     public Document getDocument(ScoreDoc scoreDoc) throws CorruptIndexException, IOException {
