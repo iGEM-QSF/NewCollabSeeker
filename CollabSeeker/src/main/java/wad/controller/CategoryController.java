@@ -33,7 +33,7 @@ public class CategoryController {
     @RequestMapping(method = RequestMethod.GET)
     public String results(@RequestParam("q") String searchQuery, Model model) throws IOException, ParseException {
         List<Team> teams = new ArrayList<Team>();
-        teams.addAll(teamRepository.findByTagsContainingIgnoreCase(searchQuery));
+        teams.addAll(teamRepository.findDistinctTeamsByTagsContainingIgnoreCase(searchQuery));
         
         model.addAttribute("myteamname", teamService.getAuthenticatedTeamName());
         model.addAttribute("teams", teams);

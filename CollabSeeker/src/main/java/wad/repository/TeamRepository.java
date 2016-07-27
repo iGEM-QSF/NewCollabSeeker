@@ -11,7 +11,8 @@ public interface TeamRepository extends JpaRepository<Team, Long> {
     Team findByFacebookId(String id);
     Team findByFacebook(String id);
     List<Team> findByDescriptionContainingIgnoreCase(String word);
-    List<Team> findByTagsContainingIgnoreCase(String word);
+    //List<Team> findByTagsContainingIgnoreCase(String word);
+    List<Team> findDistinctTeamsByTagsContainingIgnoreCase(String word);
     List<Team> findByNameContainingIgnoreCase(String word);
     
 }
