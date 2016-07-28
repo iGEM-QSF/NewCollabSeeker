@@ -115,24 +115,39 @@ display: block;
                 </ul>
             </div>
             
-            <p sec:authorize="isAnonymous()">You are currently not logged in.</p>
-            <p sec:authorize="isAuthenticated()">You just logged in. <strong><span th:text="${myteamname}"></span></strong></p>
+            <!--p sec:authorize="isAnonymous()">You are currently not logged in.</p-->
+            <!--p sec:authorize="isAuthenticated()">You just logged in. <strong><span th:text="${myteamname}"></span></strong></p-->
             <!-- /sidebar -->
 
             <!-- main -->
             <div class="column col-sm-9" id="main">
                 <div class="padding">
                     <div>    
-                        <p>
+                        <!--p>
                                 <a type="button" class="btn btn-default btn-sm" th:href="@{/logout}" style="float: right;">
                                 <span class="glyphicon glyphicon-log-out"></span> Log Out
                                 </a>
-                        </p>
-                        <p>
+                        </p-->
+                        <p sec:authorize="isAnonymous()">
+                                <a type="button" class="btn btn-default btn-sm" th:href="@{/login}" style="float: right;">
+                                <span class="glyphicon glyphicon-log-in"></span> Log In
+                                </a>   
+                        </p> 
+                            
+                            
+                        <!--p>
                                 <a type="button" class="btn btn-default btn-sm" th:href="@{/team/{teamname} (teamname=${myteamname})}" style="float: right;">
                                     <span class="glyphicon glyphicon-user"></span> <span th:text="${myteamname}">My Team</span>
                                 </a>
-                        </p>    
+                        </p-->
+                        <p sec:authorize="isAuthenticated()">
+                            <a type="button" class="btn btn-default btn-sm" th:href="@{/logout}" style="float: right;">
+                                <span class="glyphicon glyphicon-log-out"></span> Log Out
+                                </a>   
+                            <a type="button" class="btn btn-default btn-sm" th:href="@{/team/{teamname} (teamname=${myteamname})}" style="float: right;">
+                                    <span class="glyphicon glyphicon-user"></span> <span th:text="${myteamname}">My Team</span>
+                                </a>
+                        </p>
                         
                     </div>
                     <div class="full col-sm-9">

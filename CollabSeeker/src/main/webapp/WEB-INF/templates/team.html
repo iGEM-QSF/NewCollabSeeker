@@ -62,8 +62,13 @@ display: block;
 		</h4>
 		<br/><br/>
 
-		
-                <a th:if="${editable}" class="btn btn-default" href="" th:href="@{/team/edit/{teamname} (teamname = ${team.name})}">Edit</a>
+		<p sec:authorize="isAnonymous()">
+                    <form method="GET" th:action="@{/team/edit/{teamname} (teamname = ${team.name})}"><input type="submit" class="btn btn-default btn-sm" th:value="Edit"/></form>   
+                </p> 
+                
+                <p sec:authorize="isAuthenticated()">
+                        <a th:if="${editable}" class="btn btn-default" href="" th:href="@{/team/edit/{teamname} (teamname = ${team.name})}">Edit</a>
+                </p>
 	</div>
 	<div class="col-sm-2">
 		
