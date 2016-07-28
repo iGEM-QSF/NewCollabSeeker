@@ -54,7 +54,8 @@
                                 <!--span class="text-box"-->
                                         <label class="s-lock"></label>
                                         <form id="twitter-login" action="/connect/twitter" method="POST">
-                                        <input type="submit" name="twitter" value="Sign in with Twitter"/>
+                                            <input type="hidden" name="_csrf" th:value="${_csrf.token}" />
+                                            <input type="submit" name="twitter" value="Sign in with Twitter"/>
                                         </form>
                                 <!--/span-->
                                 </div>
