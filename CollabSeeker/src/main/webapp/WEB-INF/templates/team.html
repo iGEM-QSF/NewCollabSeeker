@@ -37,6 +37,8 @@ display: block;
 		<br/>
                 <small class="text-muted"><b>Year:</b> <span th:text='${team.year}'>{{ team.year }}</span> • <a id="wiki-link" href="http://{{ team.year }}.igem.org/Team:{{ team.title }}" th:href='@{http://{teamyear}.igem.org/Team:{teamname} (teamyear=${team.year}, teamname=${team.name})}' style="text-decoration: none;">Visit Wiki</a></small>
 		<br/>
+                <small><b>E-mail: </b><span class="text-muted description" th:text='${team.email}'>{{ email }}</span></small>
+                <br/>
                 <small class="text-muted"><b>Social Media:</b>
 			
                         <span th:if='${not #strings.isEmpty(team.facebook)}'>

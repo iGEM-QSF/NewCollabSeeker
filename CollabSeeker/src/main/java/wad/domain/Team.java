@@ -1,3 +1,4 @@
+
 package wad.domain;
 
 import java.text.DateFormat;
@@ -32,6 +33,14 @@ public class Team extends AbstractPersistable<Long> {
     @Lob
     @Column(length = 11 * 1024)
     private String collabdetails;
+    
+    private String email;
+    
+    
+
+    public String getEmail() {
+        return email;
+    }
 
     public String getCollabdetails() {
         return collabdetails;
@@ -64,6 +73,7 @@ public class Team extends AbstractPersistable<Long> {
         this.image = null;
         this.tags = new ArrayList<String>();
         this.collabdetails = "";
+        this.email = "";    
     }
     
     /*
@@ -171,6 +181,10 @@ public class Team extends AbstractPersistable<Long> {
 
     public void setTwitterId(String twitterId) {
         this.twitterId = twitterId;
+    }
+
+    public void setEmail(String email) {
+        this.email = email; //To change body of generated methods, choose Tools | Templates.
     }
 
     

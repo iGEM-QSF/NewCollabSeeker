@@ -66,7 +66,7 @@ public class TeamController {
     }
     
     @RequestMapping(value = "/edit/{teamname}", method = RequestMethod.POST)
-    public String edit(@PathVariable String teamname, @RequestParam String description, @RequestParam String collabdetails,
+    public String edit(@PathVariable String teamname, @RequestParam String description, @RequestParam String collabdetails, @RequestParam String email,
             @RequestParam String facebook, @RequestParam String twitter, @RequestParam(value="categories[]") List<String> categories,
             @RequestParam(value="file", required=false) MultipartFile file) throws IOException {
         Team thisTeam = teamRepository.findByName(teamname);
@@ -77,6 +77,7 @@ public class TeamController {
         allcategories.addAll(categories);
         thisTeam.setDescription(description);
         thisTeam.setCollabdetails(collabdetails);
+        thisTeam.setEmail(email);
         thisTeam.setFacebook(facebook);
         thisTeam.setTwitter(twitter);
         thisTeam.setTags(categories);
