@@ -67,7 +67,7 @@ public class TeamController {
     
     @RequestMapping(value = "/edit/{teamname}", method = RequestMethod.POST)
     public String edit(@PathVariable String teamname, @RequestParam String description, @RequestParam String collabdetails, @RequestParam String email,
-            @RequestParam String facebook, @RequestParam String twitter, @RequestParam(value="categories[]") List<String> categories,
+            @RequestParam String facebook, @RequestParam String twitter, @RequestParam String newPassword,@RequestParam(value="categories[]") List<String> categories,
             @RequestParam(value="file", required=false) MultipartFile file) throws IOException {
         Team thisTeam = teamRepository.findByName(teamname);
         if (teamService.getAuthenticatedTeamName() == null || !teamService.getAuthenticatedTeamName().equals(teamname)) {
@@ -82,6 +82,9 @@ public class TeamController {
         thisTeam.setTwitter(twitter);
         thisTeam.setTags(categories);
         thisTeam.setLastUpdated(DateFormat.getDateInstance(DateFormat.SHORT).format(new Date()));
+        if (!newPassword.isEmpty()) {
+            thisTeam.setPassword(newPassword);
+        }
         
         /*FileObject imageFile = new FileObject();
         imageFile.setContent(file.getBytes());

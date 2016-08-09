@@ -16,8 +16,8 @@
 
 <div class="row">
 	<div class="col-sm-10">
-		<h3><a href='' th:href="@{/team/{teamname} (teamname=${team.name})}" style="text-decoration: none;" th:text='${team.name}'>{{ team.title }}</a></h3><h4/>
-		<form method="post" action="" th:action="@{/team/edit/{teamname} (teamname=${team.name})}" enctype="multipart/form-data">
+		<h3><a href='' th:href="@{/team/{teamname} (teamname=${team.name})}" style="text-decoration: none;" th:text='${team.name}' >{{ team.title }}</a></h3><h4/>
+		<form method="post" action="" th:action="@{/team/edit/{teamname} (teamname=${team.name})}" enctype="multipart/form-data" onsubmit="return validateForm();">
                     <br></br>
 					<div class="form-group">
 						<label for="aboutInput">Description</label>
@@ -88,6 +88,64 @@
 					</div>
 					
 					<br/>
+ 
+ <label for="changePassword">Change Password</label>
+ <br></br>
+  <br></br>
+  
+ <label>New Password</label>
+ <input type="text" class="form-control" name="newPassword" id="newPassword">
+ </input>
+ <br></br> 
+ 
+ <label for="confirmPassword">Confirm Password</label>
+ <input type="text" class="form-control" name="confirmPassword" id="confirmPassword" onkeyup="checkPass(); return false" >
+ </input>
+ <span id="confirmMessage" class="confirmMessage"></span>
+ <br></br>
+ 
+ <script> function checkPass()
+{
+    //Store the password field objects into variables ...
+    var newPassword = document.getElementById('newPassword');
+    var confirmPassword = document.getElementById('confirmPassword');
+    //Store the Confimation Message Object ...
+    var message = document.getElementById('confirmMessage');
+    //Set the colors we will be using ...
+    var goodColor = "#66cc66";
+    var badColor = "#ff6666";
+    //Compare the values in the password field 
+    //and the confirmation field
+    if(newPassword.value == confirmPassword.value){
+        //The passwords match. 
+        //Set the color to the good color and inform
+        //the user that they have entered the correct password 
+        confirmPassword.style.backgroundColor = goodColor;
+        message.style.color = goodColor;
+        message.innerHTML = "Passwords Match!";
+    }else{
+        //The passwords do not match.
+        //Set the color to the bad color and
+        //notify the user.
+        confirmPassword.style.backgroundColor = badColor;
+        message.style.color = badColor;
+        message.innerHTML = "Passwords Do Not Match!";
+        
+    }
+}
+function validateForm() {
+    var newPassword = document.getElementById('newPassword');
+    var confirmPassword = document.getElementById('confirmPassword');
+    if (newPassword.value != confirmPassword.value) {
+        alert("Passwords must match");
+        return false;
+    }
+}
+ </script>
+
+                                      
+                                        
+                                        
 					<!--div class="form-group">
 						<label for="tagsInput">Categories</label>
 						
